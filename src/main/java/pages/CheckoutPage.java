@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
     public class CheckoutPage {
         private WebDriver driver;
 
-        // 1. Store Checkout Page Locators
+        // Store Checkout Page Locators
         private By cartIcon = By.className("shopping_cart_link");
         private By checkoutButton = By.id("checkout");
         private By firstNameField = By.id("first-name");
@@ -15,12 +15,13 @@ import org.openqa.selenium.WebDriver;
         private By finishButton = By.id("finish");
         private By successHeader = By.className("complete-header");
 
-        // 2. Constructor
+        // Constructor
         public CheckoutPage(WebDriver driver) {
             this.driver = driver;
         }
 
-        // 3. Action Methods for the Checkout Pipeline
+        // 3. cart & checkout methods
+
         public void goToCart() {
             driver.findElement(cartIcon).click();
         }

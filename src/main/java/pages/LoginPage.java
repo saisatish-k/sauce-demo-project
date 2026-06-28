@@ -6,17 +6,17 @@ import org.openqa.selenium.WebDriver;
     public class LoginPage {
         private WebDriver driver;
 
-        // 1. Store the locators at the top using By
+        // storing the locators
         private By usernameField = By.id("user-name");
         private By passwordField = By.id("password");
         private By loginButton = By.id("login-button");
 
-        // 2. Constructor to pass the driver from the test script
+        // passing the driver from the test script using constructor
         public LoginPage(WebDriver driver) {
             this.driver = driver;
         }
 
-        // 3. Clean action methods
+        // login methods
         public void enterUsername(String username) {
             driver.findElement(usernameField).sendKeys(username);
         }
@@ -29,7 +29,7 @@ import org.openqa.selenium.WebDriver;
             driver.findElement(loginButton).click();
         }
 
-        // Combined business flow for convenience
+        // calling methods through constructor
         public void login(String username, String password) {
             this.enterUsername(username);
             this.enterPassword(password);

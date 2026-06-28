@@ -22,25 +22,25 @@ public class SauceDemoTest {
             InventoryPage inventoryPage = new InventoryPage(driver);
             CheckoutPage checkoutPage = new CheckoutPage(driver);
 
-            // Step 1: Validate Authentication Flow
+            // Step 1: login credentials
             loginPage.login("standard_user", "secret_sauce");
 
-            // Step 2: Validate Cart Operations via Advanced Parent-Child Chaining XPath
+            // Step 2: adding products using Advanced Parent-Child Chaining XPath
             inventoryPage.addItemToCart("Sauce Labs Backpack");
             inventoryPage.addItemToCart("Sauce Labs Bolt T-Shirt");
 
-            // Step 3: Proceed through the Transactional Checkout Funnel
+            // Step 3: adding to cart & checking out
             checkoutPage.goToCart();
             checkoutPage.clickCheckout();
 
-            // Step 4: Validate Form Entry Integrity
+            // Step 4: shipping details
             checkoutPage.fillShippingInformation("Sai", "Satish", "411036");
             checkoutPage.clickContinue();
 
             // Step 5: Finalize Payment / Process Transaction Click
             checkoutPage.clickFinish();
 
-            // Step 6: Verify Final Order Success Toast/Header text
+            // Step 6: Verifying Final Order
             String successMsg = checkoutPage.getConfirmationMessage();
             if (successMsg.equalsIgnoreCase("Thank you for your order!")) {
                 System.out.println("SUCCESS: Complete end-to-end checkout pipeline verified perfectly!");
@@ -53,8 +53,8 @@ public class SauceDemoTest {
         } catch (Exception e) {
             System.out.println("Test automation encountered a roadblock: " + e.getMessage());
         } finally {
-            // Safe termination of browser session
-            //driver.quit();
+            // closing browser
+            driver.quit();
         }
     }
 }
