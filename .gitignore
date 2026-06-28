@@ -1,0 +1,32 @@
+target/
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+.kotlin
+
+### IntelliJ IDEA ###
+.idea/modules.xml
+.idea/jarRepositories.xml
+.idea/compiler.xml
+.idea/libraries/
+*.iws
+*.iml
+*.ipr
+
+# Ignore Maven build outputs
+target/
+*.log
+
+# Ignore IDE-specific files and folders
+.idea/
+*.iml
+.classpath
+.project
+.settings/
+
+# Ignore OS-generated files
+.DS_Store
+Thumbs.db
+
+### Mac OS ###
+.DS_Store
